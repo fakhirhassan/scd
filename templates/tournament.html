@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tournaments - Esports Hub</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #080710;
+            color: #ffffff;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        header {
+            background: #000;
+            color: #fff;
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 60px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .btn-login {
+            background: #ff0000;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .tournaments {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 20px;
+        }
+
+        .tournament {
+            background-color: rgba(255, 255, 255, 0.13);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            width: 300px;
+            overflow: hidden;
+            box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .tournament img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .tournament h2 {
+            font-size: 24px;
+            margin: 10px 0;
+        }
+
+        .tournament p {
+            padding: 0 20px;
+        }
+
+        .btn-register {
+            display: block;
+            margin: 20px auto;
+            background: #ff0000;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        footer {
+            background: #000;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .quick-links a, .social-media a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1001;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 10px;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .form-container {
+            color: #000;
+        }
+
+        .form-container h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .form-container label {
+            display: block;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        .form-container input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            font-size: 14px;
+        }
+
+        .form-container button {
+            display: block;
+            margin: 20px auto 0;
+            background: #ff0000;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+            }
+
+            header {
+                flex-direction: column;
+            }
+
+            .logo {
+                margin-bottom: 10px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            .tournaments {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .tournament {
+                width: 80%;
+            }
+        }
+
+        @media (max-width: 400px) {
+            h2 {
+                font-size: 28px;
+            }
+
+            .tournament h2 {
+                font-size: 20px;
+            }
+
+            .btn-register {
+                font-size: 14px;
+                padding: 8px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">Esports Hub</div>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="tournament">Tournaments</a></li>
+                    <li><a href="game">Games</a></li>
+                    <li><a href="#">Teams</a></li>
+                    <li><a href="news">News</a></li>
+                    <li><a href="aboutUs">About Us</a></li>
+                    <li><a href="Contact">Contact</a></li>
+                    <li><a href="login" class="btn-login">Login/Sign Up</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="container">
+        <h2>Upcoming Tournaments</h2>
+        <div class="tournaments">
+            <div class="tournament">
+                <img src="https://via.placeholder.com/300x200" alt="PUBG Tournament">
+                <h2>PUBG Tournament</h2>
+                <p>Compete in the ultimate battle royale and be the last one standing!</p>
+                <button class="btn-register" data-tournament="PUBG Tournament">Register Now</button>
+            </div>
+            <div class="tournament">
+                <img src="https://via.placeholder.com/300x200" alt="Valorant Tournament">
+                <h2>Valorant Tournament</h2>
+                <p>Show your skills in this tactical shooter and lead your team to victory!</p>
+                <button class="btn-register" data-tournament="Valorant Tournament">Register Now</button>
+            </div>
+            <div class="tournament">
+                <img src="https://via.placeholder.com/300x200" alt="Call of Duty Tournament">
+                <h2>Call of Duty Tournament</h2>
+                <p>Engage in intense combat and prove you're the best in this legendary shooter!</p>
+                <button class="btn-register" data-tournament="Call of Duty Tournament">Register Now</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- The Modal -->
+    <div id="registrationModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="form-container">
+                <h3>Register for <span id="tournamentName"></span></h3>
+                <form method="post" action="{% url 'tournament' %}">
+                    {% csrf_token %}
+                    <input type="hidden" id="tournament_field" name="tournament">
+                    <label for="team_name">Team Name:</label>
+                    <input type="text" id="team_name" name="team_name" placeholder="Enter Team Name" required>
+                    <label for="player_1_id">Player 1 ID:</label>
+                    <input type="text" id="player_1_id" name="player_1_id" placeholder="Enter Player 1 ID" required>
+                    <label for="player_1_name">Player 1 Name:</label>
+                    <input type="text" id="player_1_name" name="player_1_name" placeholder="Enter Player 1 Name" required>
+                    <label for="player_2_id">Player 2 ID:</label>
+                    <input type="text" id="player_2_id" name="player_2_id" placeholder="Enter Player 2 ID" required>
+                    <label for="player_2_name">Player 2 Name:</label>
+                    <input type="text" id="player_2_name" name="player_2_name" placeholder="Enter Player 2 Name" required>
+                    <label for="player_3_id">Player 3 ID:</label>
+                    <input type="text" id="player_3_id" name="player_3_id" placeholder="Enter Player 3 ID" required>
+                    <label for="player_3_name">Player 3 Name:</label>
+                    <input type="text" id="player_3_name" name="player_3_name" placeholder="Enter Player 3 Name" required>
+                    <label for="player_4_id">Player 4 ID:</label>
+                    <input type="text" id="player_4_id" name="player_4_id" placeholder="Enter Player 4 ID" required>
+                    <label for="player_4_name">Player 4 Name:</label>
+                    <input type="text" id="player_4_name" name="player_4_name" placeholder="Enter Player 4 Name" required>
+                    <label for="substitute_id">Substitute ID:</label>
+                    <input type="text" id="substitute_id" name="substitute_id" placeholder="Enter Substitute ID" required>
+                    <label for="substitute_name">Substitute Name:</label>
+                    <input type="text" id="substitute_name" name="substitute_name" placeholder="Enter Substitute Name" required>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="quick-links">
+                <a href="#">Home</a>
+                <a href="#">Tournaments</a>
+                <a href="#">Games</a>
+                <a href="#">Teams</a>
+                <a href="#">News</a>
+                <a href="#">About Us</a>
+                <a href="#">Contact</a>
+            </div>
+            <div class="social-media">
+                <a href="#">Facebook</a>
+                <a href="#">Twitter</a>
+                <a href="#">Instagram</a>
+                <a href="#">YouTube</a>
+            </div>
+            <div class="contact-info">
+                <p>Email: fakhirhassanllc@gmail.com</p>
+                <p>Phone: +923269718297</p>
+            </div>
+            <p>&copy; 2024 Esports Hub. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Get the modal
+        var modal = document.getElementById("registrationModal");
+
+        // Get the button that opens the modal
+        var btns = document.querySelectorAll(".btn-register");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks the button, open the modal 
+        btns.forEach(function(btn) {
+            btn.onclick = function() {
+                var tournament = this.getAttribute("data-tournament");
+                document.getElementById("tournamentName").innerText = tournament;
+                document.getElementById("tournament_field").value = tournament;
+                modal.style.display = "block";
+            }
+        });
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

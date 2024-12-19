@@ -1,0 +1,190 @@
+<!-- templates/newapp/game_list.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Games - Esports Hub</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #080710;
+            color: #ffffff;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+        header {
+            background: #000;
+            color: #fff;
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        nav ul li {
+            margin-left: 60px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .btn-login {
+            background: #ff0000;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        h2 {
+            text-align: center;
+            font-size: 36px;
+            margin: 20px 0;
+        }
+        .games {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 20px;
+        }
+        .game {
+            background-color: rgba(255, 255, 255, 0.13);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            width: 300px;
+            overflow: hidden;
+            box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .game img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .game h3 {
+            font-size: 24px;
+            margin: 10px 0;
+        }
+        .game p {
+            padding: 0 20px;
+        }
+        footer {
+            background: #000;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .quick-links a, .social-media a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+            }
+            header {
+                flex-direction: column;
+            }
+            .logo {
+                margin-bottom: 10px;
+            }
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            nav ul li {
+                margin: 10px 0;
+            }
+            .games {
+                flex-direction: column;
+                align-items: center;
+            }
+            .game {
+                width: 80%;
+            }
+        }
+        @media (max-width: 400px) {
+            h2 {
+                font-size: 28px;
+            }
+            .game h3 {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">Esports Hub</div>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="tournament">Tournaments</a></li>
+                    <li><a href="game">Games</a></li>
+                    <li><a href="#">Teams</a></li>
+                    <li><a href="news">News</a></li>
+                    <li><a href="aboutUs">About Us</a></li>
+                    <li><a href="Contact">Contact</a></li>
+                    <li><a href="login" class="btn-login">Login/Sign Up</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="container">
+        <h2>Games</h2>
+        <div class="games">
+            {% for game in games %}
+            <div class="game">
+                <img src="{{ game.cover_image.url }}" alt="{{ game.title }}">
+                <h3>{{ game.title }}</h3>
+                <p>{{ game.description }}</p>
+                <p>Released: {{ game.release_date }}</p>
+                <p>Developer: {{ game.developer }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <div class="quick-links">
+                <a href="#">Home</a>
+                <a href="#">Tournaments</a>
+                <a href="#">Games</a>
+                <a href="#">Teams</a>
+                <a href="#">News</a>
+                <a href="#">About Us</a>
+                <a href="#">Contact</a>
+            </div>
+            <div class="social-media">
+                <a href="#">Facebook</a>
+                <a href="#">Twitter</a>
+                <a href="#">Instagram</a>
+                <a href="#">YouTube</a>
+            </div>
+            <div class="contact-info">
+                <p>Email: fakhirhassanllc@gmail.com</p>
+                <p>Phone: +923269718297</p>
+            </div>
+            <p>&copy; 2024 Esports Hub. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

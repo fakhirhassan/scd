@@ -135,3 +135,9 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'hassanshaba0987@gmail.com'
 EMAIL_HOST_PASSWORD = 'hassanali123'
+
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
+# Add this to your urlpatterns in your project's urls.py

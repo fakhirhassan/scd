@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -248,7 +249,7 @@
             <div class="logo">Esports Hub</div>
             <nav>
                 <ul>
-                    <li><a href="#">Home</a></li>
+                    <li><a href="home">Home</a></li>
                     <li><a href="tournament">Tournaments</a></li>
                     <li><a href="game">Games</a></li>
                     <li><a href="#">Teams</a></li>
@@ -264,19 +265,19 @@
         <h2>Upcoming Tournaments</h2>
         <div class="tournaments">
             <div class="tournament">
-                <img src="https://via.placeholder.com/300x200" alt="PUBG Tournament">
+                <img src="{% static "pubg.jpg" %}" alt="PUBG Tournament">
                 <h2>PUBG Tournament</h2>
                 <p>Compete in the ultimate battle royale and be the last one standing!</p>
                 <button class="btn-register" data-tournament="PUBG Tournament">Register Now</button>
             </div>
             <div class="tournament">
-                <img src="https://via.placeholder.com/300x200" alt="Valorant Tournament">
+                <img src="{% static "Valorant.jpg" %}" alt="Valorant Tournament">
                 <h2>Valorant Tournament</h2>
                 <p>Show your skills in this tactical shooter and lead your team to victory!</p>
                 <button class="btn-register" data-tournament="Valorant Tournament">Register Now</button>
             </div>
             <div class="tournament">
-                <img src="https://via.placeholder.com/300x200" alt="Call of Duty Tournament">
+                <img src="{% static "COD.png" %}" alt="Call of Duty Tournament">
                 <h2>Call of Duty Tournament</h2>
                 <p>Engage in intense combat and prove you're the best in this legendary shooter!</p>
                 <button class="btn-register" data-tournament="Call of Duty Tournament">Register Now</button>

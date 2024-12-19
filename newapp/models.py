@@ -23,7 +23,7 @@ class Game(models.Model):
     description = models.TextField()
     release_date = models.DateField()
     developer = models.CharField(max_length=100)
-    cover_image = models.ImageField(upload_to='game_covers/')  # Make sure you have media settings configured
+    cover_image = models.ImageField(upload_to='game_covers/')  
 
     def __str__(self):
         return self.title

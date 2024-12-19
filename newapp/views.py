@@ -59,22 +59,22 @@ def ManagerSignup(request):
         if password1 != password2:
             return HttpResponse("Your password and confirm password do not match!!")
 
-        # Check if CNIC and confirm CNIC match
+   
         if cnic != confirm_cnic:
             return HttpResponse("Your CNIC and confirm CNIC do not match!!")
 
-        # Check if the user with the provided email already exists
+   
         if User.objects.filter(email=email).exists():
             return HttpResponse("An account with this email already exists!!")
 
-        # Create the user
+       
         user = User.objects.create_user(username=username, email=email, password=password1)
-        # Additional fields for manager
+       
         user.profile.organization = organization
         user.profile.cnic = cnic
         user.profile.save()
 
-        return redirect('login')  # Redirect to login page after successful signup
+        return redirect('login')  
 
     return render(request, 'ManagerSignup.html')
 

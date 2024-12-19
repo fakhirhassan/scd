@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,10 +57,16 @@
         }
 
         .hero {
-            background: url('https://via.placeholder.com/1920x800') no-repeat center center/cover;
+            background: url('{% static "esports banner.png" %}') no-repeat center center/cover;
+            width: 100%;
+            max-width: 1920px;
+            height: 800px;
+            margin: 0 auto;
             color: #fff;
             text-align: center;
-            padding: 100px 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .hero h1 {
@@ -147,7 +154,7 @@
         footer {
             background: #000;
             color: #fff;
-            padding: 20px 0;
+            padding: 30px 0;
             text-align: center;
         }
 
@@ -245,7 +252,7 @@
             <div class="logo">Esports Hub</div>
             <nav>
                 <ul>
-                    <li><a href="#">Home</a></li>
+                    <li><a href="home">Home</a></li>
                     <li><a href="tournament">Tournaments</a></li>
                     <li><a href="game">Games</a></li>
                     <li><a href="#">Teams</a></li>
@@ -261,7 +268,7 @@
         <div class="container">
             <h1>Welcome to Esports Hub</h1>
             <p>Your Ultimate Destination for All Things Esports</p>
-            <a href="#" class="btn-main">Explore Tournaments</a>
+            <a href="tournament" class="btn-main">Explore Tournaments</a>
         </div>
     </section>
     <section class="featured-tournaments">
@@ -327,13 +334,13 @@
     <footer>
         <div class="container">
             <div class="quick-links">
-                <a href="#">Home</a>
-                <a href="#">Tournaments</a>
-                <a href="#">Games</a>
+                <a href="home">Home</a>
+                <a href="tournament">Tournaments</a>
+                <a href="game">Games</a>
                 <a href="#">Teams</a>
                 <a href="#">News</a>
                 <a href="#">About Us</a>
-                <a href="#">Contact</a>
+                <a href="Contact">Contact</a>
             </div>
             <div class="social-media">
                 <a href="#">Facebook</a>
